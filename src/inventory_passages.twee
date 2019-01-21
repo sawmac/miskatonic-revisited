@@ -1,0 +1,19 @@
+:: Display inventory [inventory]
+<<set _array to $player.inventory.toArray()>>
+<span class="inventory">\
+	<<nobr>>''INVENTORY:'' <<inventory '$player.inventory' ', '>><</nobr>>
+</span>
+
+:: wallet [inventory]
+It is a plain wallet.
+
+:: matches [inventory]
+A pack of matches.
+
+:: candle [inventory]
+It is a wax candle
+
+:: lab note [inventory]
+<div id="note">
+Dear Dr. Miller --
+</div>

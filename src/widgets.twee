@@ -1,0 +1,28 @@
+:: widgets [widget]
+<<widget "sanity">>
+<<if $args[0].first() is '+' or $args[0].first() is '-'>>
+  <<set $player.sanity_current to $player.sanity_current + Number($args[0])>>
+<<elseif $args[0] is 'reset'>>
+  <<set $player.sanity_current to $player.sanity_start>>
+<<else>>
+  <<set $player.sanity_current to $args[0]>>
+<</if>>
+<<replace '#footer'>><<display 'DisplayStats'>><</replace>>
+<</widget>>
+
+<<widget "health">>
+<<if $args[0].first() is '+' or $args[0].first() is '-'>>
+  <<set $player.health_current to $player.health_current + Number($args[0])>>
+<<elseif $args[0] is 'reset'>>
+  <<set $player.health_current to $player.health_start>>
+<<else>>
+  <<set $player.health_current to $args[0]>>
+<</if>>
+<<replace '#footer'>><<display 'DisplayStats'>><</replace>>
+<</widget>>
+
+<<widget "either">>
+<<nobr>>
+   <<print either($args)>>\
+<</nobr>>
+<</widget>>

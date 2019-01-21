@@ -1,0 +1,70 @@
+:: StorySettings
+ifid:16443fc7-03f0-4a65-b490-c56b1a062481
+
+:: StoryTitle
+Miskatonic U
+
+:: Start
+* [[Look to the left|Left rooms]]
+* [[Look to the right|Right rooms]]
+    * [[Enter Lab 1|Lab 1]]
+    * [[Enter Lab 2|Lab 2]]
+    * [[Enter Lab 3|Lab 3]]
+    * [[Turn around|Hallway]]
+* [[Head to the end of the hallway|End of hallway]] 
+* [[Walk to the end of the hallway|End of hallway]]
+
+:: Start2
+<<if not hasVisited("Hallway")>>!! Miskatonic University
+You find yourself back at your alma mater, Miskatonic University, standing in front of the Life Sciences building where you studied biology while an undergraduate. The large, bronze, double doors, shine with the polish you always expected when entering this grand building. You stop for a moment to consider your options:
+\<<else>>Standing outside the Life Sciences building again you feel a creeping dread from the time you just spent inside. The bronze doors look tarnished and you shiver in the cold, damp atmosphere of Arkham. Did you leave too early? Or too late?<</if>>
+* [[Enter the building|Hallway]]
+* [[You feel a strange fear and leave the university|Leave]]
+
+:: Leave
+!! The Streets of Arkham
+You feel relieved, but also unsatisfied. What adventures have you just turned your back on. You may never know.
+* [[Return to the Life Sciences Building|Start]]
+* [[Head to a coffee shop to warm up and calm down|Coffee]]
+
+:: Coffee
+You escape into the streets of Arkham and find a small cafe to settle into. You order a pot of Earl Grey tea. As you sip the warming elixir, you forget about the day. Why were you even visiting Miskatonic University again? You hated your time there, you now remember, but faintly recall the sounds you woke to this morning:\
+\<div class="ryleh">
+\<<nobr>>
+\<<linkreplace "ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn" t8n>>
+<<timed 1s>><span class="insane">Dead, yet dreaming, Cthulhu waits in his palace in R'lyeh.</span>
+<div id="end">The End</div>
+<</timed>>
+<<sanity "-2">>
+<<notify>>You're losing your mind!<</notify>>
+<</linkreplace>>
+<</nobr>>
+</div>
+
+:: Hallway
+<<first>>\
+You enter the hallway of the Life Sciences building. Memories of your time as a student flood your mind, but you also feel a cold chill that emanates from the end of the hallway. \
+<<then>>\
+You feel a cold chill emanating from the end of the hallway. \
+<</first>>\
+The great lecture hall stands in front of you and various rooms on both the your left- and right-hand. 
+* [[Look to the left|Left rooms]]
+* [[Look to the right|Right rooms]]
+* [[Walk to the end of the hallway|End of hallway]]
+* [[Exit the building|Start]]
+
+:: Right rooms
+As you look to the right you see three doors marking the entrances to the three lab rooms in this building. Each is labelled with an unimaginative label. 
+* [[Enter Lab 1|Lab 1]]
+* [[Enter Lab 2|Lab 2]]
+* [[Enter Lab 3|Lab 3]]
+* [[Turn around|Hallway]]
+* [[Head to the end of the hallway|End of hallway]]
+
+:: Left rooms
+As you look to the left you see three doors marking the entrances to the three lab rooms in this building. Each is labelled with an unimaginative label. 
+* [[Enter Lab 1|Lab 1]]
+* [[Enter Lab 2|Lab 2]]
+* [[Enter Lab 3|Lab 3]]
+* [[Turn around|Hallway]]
+* [[Head to the end of the hallway|End of hallway]]

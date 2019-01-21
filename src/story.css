@@ -1,0 +1,64 @@
+#story { 
+  
+    color: white;
+    font-family: "Garamond", "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
+    font-size: 150%;
+  }
+  
+  h2 {
+   margin-bottom: 0; 
+  }
+  
+  .dead {
+      background-color: red; 
+  }
+  
+  .stats {
+   font-size: 75%; 
+   text-align: center; 
+   position: fixed;
+   bottom:0;
+   left: 0;
+   right: 0;
+    color: white;
+    background-color: black;
+  }
+  
+  .stat {
+   margin: 0 1em; 
+  }
+  
+  #end {
+       font-size: 150%;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .ryleh {
+   text-align: center;
+   font-style: italic;
+   margin-top: 1em;
+  }
+  #end {
+      position: relative;
+  }
+  
+  .insane {
+  color: red;
+  }
+
+  #message {
+      text-align: center;
+      margin-top: 3em;
+  }
+  
+  #note {
+      background-color: yellow;
+      opacity: .75;
+      color: black;
+      padding: 1em;
+  }
+  
+  /* notify.min.css, by chapel; for use with notify.js; v1.0.0 */
+  #notify{position:fixed;display:block;width:16em;right:-20em;top:2em;padding:.5em;background-color:#fff;color:#000;-webkit-transition:right .3s;-moz-transition:right .3s;-o-transition:right .3s;transition:right .3s}#notify.open{right:0}
+    

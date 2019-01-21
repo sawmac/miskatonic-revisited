@@ -1,0 +1,65 @@
+:: StoryInit
+<<set $game_state to "play">>
+<<set $player to {} >>
+<<set $player.sanity_start to 7>>
+<<set $player.sanity_current to $player.sanity_start>>
+<<set $player.health_start to 7>>
+<<set $player.health_current to $player.health_start>>
+<<set $player.investigation to 1>>
+<<newinventory '$player.inventory'>>
+<<set _items to ['matches', 'candle', 'wallet', 'watch'].pluckMany(2)>>
+<<pickup '$player.inventory' _items>>
+<<newinventory '$player.clues'>>
+
+:: PassageReady
+<<if $game_state is "play">>
+  <<if $player.health_current lt 1 >>
+	<<set $game_state to "over">>
+	<<goto "You are dead">>
+  <</if>>
+<</if>>
+
+:: PassageFooter
+<div id="footer">
+<<if tags().includes("no-footer")>>
+<<elseif $game_state is "over">>
+<<else>>
+  <<include DisplayStats>>
+<</if>>
+</div>
+
+:: DisplayStats
+<div class="stats">
+<<nobr>>
+<span class="stat">''HEALTH:'' 
+<<for _i to 0; _i lt $player.health_start; _i++>>
+	<<if _i lt $player.health_current>> ❤️ 
+	<<else>> ❌  
+	<</if>>
+<</for>></span>
+<span class="stat">''SANITY:'' 
+<<for _i to 0; _i lt $player.sanity_start; _i++>>
+	<<if _i lt $player.sanity_current>> 🧠 
+	<<else>> ❌  
+	<</if>>
+<</for>>
+</span>
+<<include "Display inventory">>
+<</nobr>>
+</div>
+
+:: Lights out [no-footer]
+<<set _sound to either("scream", "whisper", "crash", "moan")>>
+<div id="message"></div>
+<<timed 1s t8n>>
+    <<replace "#message">>
+        You turn out the lights and are plunged into darkness.
+        Why did you just do that? You really don't know.<</replace>>
+<</timed>>
+<<timed 5s t8n>>
+    <<replace "#message">><br><br>You hear a loud _sound and your mind reels.<</replace>>
+<<next>>
+    <<replace "#message">><br><br><<return "Turn the lights back on.">><</replace>>
+    <<sanity '-1'>>
+    <<notify 4s>>You lose one sanity.<</notify>>
+<</timed>>

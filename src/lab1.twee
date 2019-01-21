@@ -1,0 +1,55 @@
+:: Lab 1 [lab1]
+You stand in front of a large wooden door, with a frosted glass window. The words ''Lab 1'' appear in gold foil across the glass. While you can't see inside, you can tell the lights are on.
+* [[Open the door|Enter lab 1]]
+* [[Go back into the hallway|Hallway]]
+
+:: Enter lab 1 [lab1]
+!!Lab #1
+\<<first>>Ahhh. The old biology lab. You spent many late nights here working on your projects, dissecting both flora and fauna and marvelling at the amazing intricacies of life.<</first>>
+
+You see a [[desk|Investigate the desk]] at the front of the room, and row after row of [[lab tables|Investigate the lab tables]] with sinks, microscopes, bunson burners, petri dishes and neatly organized notebooks. The formaldehyde in the air tells you that today was probably a dissection lab, most likely a pig, by the smell of it.
+* [[Turn off the lights|Lights out]]
+* [[Leave the lab|Lab 1]]
+
+:: Investigate the desk [lab1]
+The desk is covered in papers detailing the research of the Dean of the School of Biology, Dr. Conrad Miller. You remember his stern demeanor and piercing intellect well. He had explored most of the world by the time you started at Miskatonic, and had brought wild specimens of plants to the university's renowned greenhouse, and taxidermed creatures from the far reaches of every continent -- some were quite grotesque and fiercesome looking, as you recall.
+<<if $player.inventory.has('lab note')>>
+You see [[several drawers|Drawer]].
+<<else>>
+You see [[several drawers|Drawer]] and a <<link [[yellow piece of paper|Lab note]]>><<pickup '$player.inventory' 'lab note'>><<set $player.investigation to $player.investigation + 1>><</link>> sticking out of one of them.
+<</if>>
+
+
+:: Lab note [lab1]
+<<include "lab note">>
+<<button 'Return' `previous()`>><</button>>
+
+:: Drawer [lab1]
+The drawers are all locked.
+<<if $player.inventory.has('knife')>>
+But thanks to the knife you found you're able to pry open one drawer. Inside you find a key.
+/<<pickup "key">>
+/<</if>>
+<<button 'Return' `previous()`>><</button>>
+
+:: Investigate the lab tables [lab1]
+You remember working at these lab tables as an undergraduate. Those were fun times. As you scan the surface of each table you remember using [[petri dishes|Petri]] to cultivate bacteria, the [[lab notebooks]] to collect your findings, and [[the microscopes|Microscope]] to see what life you were able to grow.
+
+<<button 'Return' `previous()`>><</button>>
+
+:: lab notebooks [lab1]
+Nothing very special here. Just some drawings of the anatomy of a pig, and a few doodles related to the upcoming Arkham festival.
+
+<<button 'Return' `previous()`>><</button>>
+
+:: Petri [lab1]
+The petri dishes are very clean. Clearly Dr. Miller has trained his students in the importance of keeping a sanitary lab. I remember when the influenze hit in 1918: many people from the town of Innsmouth fell ill and died. We had to sterilize the lab to make sure the infection didn't spread any further.
+
+<<button 'Return' `previous()`>><</button>>
+
+:: Microscope [lab1]
+You remember working with these microscopes years ago. They let you look into the small crevices of life -- zooplankton, paramecium and so much more. But, wait a minute, what is that? You focus the microscope. What you see is not the microbial movement of bacteria, but the simple letters ''HFH'''. What could this mean?
+<<pickup '$player.clues' 'HFH'>>
+
+<<button 'Return' `previous()`>><</button>>
+
