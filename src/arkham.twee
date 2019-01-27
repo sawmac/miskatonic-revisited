@@ -1,0 +1,28 @@
+/*
+ARKHAM
+Objectives:
+-- NONE: Leads out of the game
+
+Passages:
+-- Arkham (streets of Arkham)
+-- Coffee shop (end + sanity drain)
+*/
+
+:: Arkham
+!! The Streets of Arkham
+You feel relieved, but also unsatisfied. What adventures have you just turned your back on. You may never know.
+* [[Return to the Life Sciences Building|Start]]
+* [[Head to a coffee shop to warm up and calm down|Coffee]]
+
+:: Coffee
+You escape into the streets of Arkham and find a small cafe to settle into. You order a pot of Earl Grey tea. As you sip the warming elixir, you forget about the day. Why were you even visiting Miskatonic University again? You hated your time there, you now remember, but faintly recall the sounds you woke to this morning:\
+\<div class="ryleh">
+\<<nobr>>
+\<<linkreplace "ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn" t8n>>
+<<timed 1s>><span class="insane">Dead, yet dreaming, Cthulhu waits in his palace in R'lyeh.</span>
+<div id="end">The End</div>
+<</timed>>
+<<sanity "-2">>
+<</linkreplace>>
+<</nobr>>
+</div>

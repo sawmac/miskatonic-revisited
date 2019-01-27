@@ -1,3 +1,13 @@
+/*
+UTITLITY PASSAGES
+passages:
+-- StoryInit (set up variables)
+-- PassageReady (check health)
+-- PassageFooter (include DisplayStats)
+-- DisplayStats (display health and sanity)
+-- LightsOut (reduce sanity when turning out lights)
+*/
+
 :: StoryInit
 <<set $game_state to "play">>
 <<set $player to {} >>
@@ -10,6 +20,10 @@
 <<set _items to ['matches', 'candle', 'wallet', 'watch'].pluckMany(2)>>
 <<pickup '$player.inventory' _items>>
 <<newinventory '$player.clues'>>
+
+/* room properties */
+<<set $lab2 to {}>>
+<<set $lab2.lights to false>>
 
 :: PassageReady
 <<if $game_state is "play">>
@@ -61,5 +75,4 @@
 <<next>>
     <<replace "#message">><br><br><<return "Turn the lights back on.">><</replace>>
     <<sanity '-1'>>
-    <<notify 4s>>You lose one sanity.<</notify>>
 <</timed>>

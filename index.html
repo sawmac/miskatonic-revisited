@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="Miskatonic U" startnode="15" creator="Tweego" creator-version="1.3.0" ifid="16443FC7-03F0-4A65-B490-C56B1A062481" zoom="1" format="SugarCube" format-version="2.28.2" options="debug" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "story.css" */
+	<div id="store-area" hidden><tw-storydata name="Miskatonic U" startnode="20" creator="Tweego" creator-version="1.3.0" ifid="16443FC7-03F0-4A65-B490-C56B1A062481" zoom="1" format="SugarCube" format-version="2.28.2" options="debug" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "story.css" */
 #story { 
   
     color: white;
@@ -232,53 +232,10 @@ Macro.add('look', {
 		}
 	}
 });
-</script><tw-passagedata pid="1" name="Display inventory" tags="inventory" position="100,100">&lt;&lt;set _array to $player.inventory.toArray()&gt;&gt;
-&lt;span class=&quot;inventory&quot;&gt;\
-	&lt;&lt;nobr&gt;&gt;&#39;&#39;INVENTORY:&#39;&#39; &lt;&lt;inventory &#39;$player.inventory&#39; &#39;, &#39;&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="2" name="wallet" tags="inventory" position="225,100">It is a plain wallet.</tw-passagedata><tw-passagedata pid="3" name="matches" tags="inventory" position="350,100">A pack of matches.</tw-passagedata><tw-passagedata pid="4" name="candle" tags="inventory" position="475,100">It is a wax candle</tw-passagedata><tw-passagedata pid="5" name="lab note" tags="inventory" position="600,100">&lt;div id=&quot;note&quot;&gt;
-Dear Dr. Miller --
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Lab 1" tags="lab1" position="725,100">You stand in front of a large wooden door, with a frosted glass window. The words &#39;&#39;Lab 1&#39;&#39; appear in gold foil across the glass. While you can&#39;t see inside, you can tell the lights are on.
-* [[Open the door|Enter lab 1]]
-* [[Go back into the hallway|Hallway]]</tw-passagedata><tw-passagedata pid="7" name="Enter lab 1" tags="lab1" position="850,100">!!Lab #1
-\&lt;&lt;first&gt;&gt;Ahhh. The old biology lab. You spent many late nights here working on your projects, dissecting both flora and fauna and marvelling at the amazing intricacies of life.&lt;&lt;/first&gt;&gt;
-
-You see a [[desk|Investigate the desk]] at the front of the room, and row after row of [[lab tables|Investigate the lab tables]] with sinks, microscopes, bunson burners, petri dishes and neatly organized notebooks. The formaldehyde in the air tells you that today was probably a dissection lab, most likely a pig, by the smell of it.
-* [[Turn off the lights|Lights out]]
-* [[Leave the lab|Lab 1]]</tw-passagedata><tw-passagedata pid="8" name="Investigate the desk" tags="lab1" position="975,100">The desk is covered in papers detailing the research of the Dean of the School of Biology, Dr. Conrad Miller. You remember his stern demeanor and piercing intellect well. He had explored most of the world by the time you started at Miskatonic, and had brought wild specimens of plants to the university&#39;s renowned greenhouse, and taxidermed creatures from the far reaches of every continent -- some were quite grotesque and fiercesome looking, as you recall.
-&lt;&lt;if $player.inventory.has(&#39;lab note&#39;)&gt;&gt;
-You see [[several drawers|Drawer]].
-&lt;&lt;else&gt;&gt;
-You see [[several drawers|Drawer]] and a &lt;&lt;link [[yellow piece of paper|Lab note]]&gt;&gt;&lt;&lt;pickup &#39;$player.inventory&#39; &#39;lab note&#39;&gt;&gt;&lt;&lt;set $player.investigation to $player.investigation + 1&gt;&gt;&lt;&lt;/link&gt;&gt; sticking out of one of them.
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Lab note" tags="lab1" position="1100,100">&lt;&lt;include &quot;lab note&quot;&gt;&gt;
-&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Drawer" tags="lab1" position="1225,100">The drawers are all locked.
-&lt;&lt;if $player.inventory.has(&#39;knife&#39;)&gt;&gt;
-But thanks to the knife you found you&#39;re able to pry open one drawer. Inside you find a key.
-/&lt;&lt;pickup &quot;key&quot;&gt;&gt;
-/&lt;&lt;/if&gt;&gt;
-&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Investigate the lab tables" tags="lab1" position="100,225">You remember working at these lab tables as an undergraduate. Those were fun times. As you scan the surface of each table you remember using [[petri dishes|Petri]] to cultivate bacteria, the [[lab notebooks]] to collect your findings, and [[the microscopes|Microscope]] to see what life you were able to grow.
-
-&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="lab notebooks" tags="lab1" position="225,225">Nothing very special here. Just some drawings of the anatomy of a pig, and a few doodles related to the upcoming Arkham festival.
-
-&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Petri" tags="lab1" position="350,225">The petri dishes are very clean. Clearly Dr. Miller has trained his students in the importance of keeping a sanitary lab. I remember when the influenze hit in 1918: many people from the town of Innsmouth fell ill and died. We had to sterilize the lab to make sure the infection didn&#39;t spread any further.
-
-&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Microscope" tags="lab1" position="475,225">You remember working with these microscopes years ago. They let you look into the small crevices of life -- zooplankton, paramecium and so much more. But, wait a minute, what is that? You focus the microscope. What you see is not the microbial movement of bacteria, but the simple letters &#39;&#39;HFH&#39;&#39;&#39;. What could this mean?
-&lt;&lt;pickup &#39;$player.clues&#39; &#39;HFH&#39;&gt;&gt;
-
-&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Start" tags="" position="600,225">* [[Look to the left|Left rooms]]
-* [[Look to the right|Right rooms]]
-    * [[Enter Lab 1|Lab 1]]
-    * [[Enter Lab 2|Lab 2]]
-    * [[Enter Lab 3|Lab 3]]
-    * [[Turn around|Hallway]]
-* [[Head to the end of the hallway|End of hallway]] 
-* [[Walk to the end of the hallway|End of hallway]]</tw-passagedata><tw-passagedata pid="16" name="Start2" tags="" position="725,225">&lt;&lt;if not hasVisited(&quot;Hallway&quot;)&gt;&gt;!! Miskatonic University
-You find yourself back at your alma mater, Miskatonic University, standing in front of the Life Sciences building where you studied biology while an undergraduate. The large, bronze, double doors, shine with the polish you always expected when entering this grand building. You stop for a moment to consider your options:
-\&lt;&lt;else&gt;&gt;Standing outside the Life Sciences building again you feel a creeping dread from the time you just spent inside. The bronze doors look tarnished and you shiver in the cold, damp atmosphere of Arkham. Did you leave too early? Or too late?&lt;&lt;/if&gt;&gt;
-* [[Enter the building|Hallway]]
-* [[You feel a strange fear and leave the university|Leave]]</tw-passagedata><tw-passagedata pid="17" name="Leave" tags="" position="850,225">!! The Streets of Arkham
+</script><tw-passagedata pid="1" name="Arkham" tags="" position="100,100">!! The Streets of Arkham
 You feel relieved, but also unsatisfied. What adventures have you just turned your back on. You may never know.
 * [[Return to the Life Sciences Building|Start]]
-* [[Head to a coffee shop to warm up and calm down|Coffee]]</tw-passagedata><tw-passagedata pid="18" name="Coffee" tags="" position="975,225">You escape into the streets of Arkham and find a small cafe to settle into. You order a pot of Earl Grey tea. As you sip the warming elixir, you forget about the day. Why were you even visiting Miskatonic University again? You hated your time there, you now remember, but faintly recall the sounds you woke to this morning:\
+* [[Head to a coffee shop to warm up and calm down|Coffee]]</tw-passagedata><tw-passagedata pid="2" name="Coffee" tags="" position="225,100">You escape into the streets of Arkham and find a small cafe to settle into. You order a pot of Earl Grey tea. As you sip the warming elixir, you forget about the day. Why were you even visiting Miskatonic University again? You hated your time there, you now remember, but faintly recall the sounds you woke to this morning:\
 \&lt;div class=&quot;ryleh&quot;&gt;
 \&lt;&lt;nobr&gt;&gt;
 \&lt;&lt;linkreplace &quot;ph&#39;nglui mglw&#39;nafh Cthulhu R&#39;lyeh wgah&#39;nagl fhtagn&quot; t8n&gt;&gt;
@@ -286,10 +243,72 @@ You feel relieved, but also unsatisfied. What adventures have you just turned yo
 &lt;div id=&quot;end&quot;&gt;The End&lt;/div&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;sanity &quot;-2&quot;&gt;&gt;
-&lt;&lt;notify&gt;&gt;You&#39;re losing your mind!&lt;&lt;/notify&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Hallway" tags="" position="1100,225">&lt;&lt;first&gt;&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Display inventory" tags="inventory" position="350,100">&lt;&lt;set _array to $player.inventory.toArray()&gt;&gt;
+&lt;span class=&quot;inventory&quot;&gt;\
+	&lt;&lt;nobr&gt;&gt;&#39;&#39;INVENTORY:&#39;&#39; &lt;&lt;inventory &#39;$player.inventory&#39; &#39;, &#39;&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="4" name="wallet" tags="inventory" position="475,100">It is a plain wallet.</tw-passagedata><tw-passagedata pid="5" name="matches" tags="inventory" position="600,100">A pack of matches.</tw-passagedata><tw-passagedata pid="6" name="candle" tags="inventory" position="725,100">It is a wax candle</tw-passagedata><tw-passagedata pid="7" name="lab note" tags="inventory" position="850,100">&lt;div id=&quot;note&quot;&gt;
+Dear Dr. Miller --
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Lab 1" tags="lab1" position="975,100">You stand in front of a large wooden door, with a frosted glass window. The words &#39;&#39;Lab 1&#39;&#39; appear in gold foil across the glass. While you can&#39;t see inside, you can tell the lights are on.
+* [[Open the door|Enter lab 1]]
+* [[Go back into the hallway|Hallway]]</tw-passagedata><tw-passagedata pid="9" name="Enter lab 1" tags="lab1" position="1100,100">!!Lab #1
+\&lt;&lt;first&gt;&gt;Ahhh. The old biology lab. You spent many late nights here working on your projects, dissecting both flora and fauna and marvelling at the amazing intricacies of life.&lt;&lt;/first&gt;&gt;
+
+You see a [[desk|Investigate the desk]] at the front of the room, and row after row of [[lab tables|Investigate the lab tables]] with sinks, microscopes, bunson burners, petri dishes and neatly organized notebooks. The formaldehyde in the air tells you that today was probably a dissection lab, most likely a pig, by the smell of it.
+* [[Turn off the lights|Lights out]]
+* [[Leave the lab|Lab 1]]</tw-passagedata><tw-passagedata pid="10" name="Investigate the desk" tags="lab1" position="1225,100">The desk is covered in papers detailing the research of the Dean of the School of Biology, Dr. Conrad Miller. You remember his stern demeanor and piercing intellect well. He had explored most of the world by the time you started at Miskatonic, and had brought wild specimens of plants to the university&#39;s renowned greenhouse, and taxidermed creatures from the far reaches of every continent -- some were quite grotesque and fiercesome looking, as you recall.
+&lt;&lt;if $player.inventory.has(&#39;lab note&#39;)&gt;&gt;
+You see [[several drawers|Drawer]].
+&lt;&lt;else&gt;&gt;
+You see [[several drawers|Drawer]] and a &lt;&lt;link [[yellow piece of paper|Lab note]]&gt;&gt;&lt;&lt;pickup &#39;$player.inventory&#39; &#39;lab note&#39;&gt;&gt;&lt;&lt;set $player.investigation to $player.investigation + 1&gt;&gt;&lt;&lt;/link&gt;&gt; sticking out of one of them.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Lab note" tags="lab2" position="100,225">&lt;&lt;include &quot;lab note&quot;&gt;&gt;
+&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Drawer" tags="lab2" position="225,225">The drawers are all locked.
+&lt;&lt;if $player.inventory.has(&#39;knife&#39;)&gt;&gt;
+But thanks to the knife you found you&#39;re able to pry open one drawer. Inside you find a key.
+/&lt;&lt;pickup &quot;key&quot;&gt;&gt;
+/&lt;&lt;/if&gt;&gt;
+&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Investigate the lab tables" tags="lab2" position="350,225">You remember working at these lab tables as an undergraduate. Those were fun times. As you scan the surface of each table you remember using [[petri dishes|Petri]] to cultivate bacteria, the [[lab notebooks]] to collect your findings, and [[the microscopes|Microscope]] to see what life you were able to grow.
+
+&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="lab notebooks" tags="lab2" position="475,225">Nothing very special here. Just some drawings of the anatomy of a pig, and a few doodles related to the upcoming Arkham festival.
+
+&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Petri" tags="lab2" position="600,225">The petri dishes are very clean. Clearly Dr. Miller has trained his students in the importance of keeping a sanitary lab. I remember when the influenze hit in 1918: many people from the town of Innsmouth fell ill and died. We had to sterilize the lab to make sure the infection didn&#39;t spread any further.
+
+&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Microscope" tags="lab2" position="725,225">You remember working with these microscopes years ago. They let you look into the small crevices of life -- zooplankton, paramecium and so much more. But, wait a minute, what is that? You focus the microscope. What you see is not the microbial movement of bacteria, but the simple letters &#39;&#39;HFH&#39;&#39;&#39;. What could this mean?
+&lt;&lt;pickup &#39;$player.clues&#39; &#39;HFH&#39;&gt;&gt;
+
+&lt;&lt;button &#39;Return&#39; `previous()`&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Lab 2" tags="lab2" position="850,225">You stand in front of a large wooden door, with a frosted glass window. &#39;&#39;Lab #2&#39;&#39; appears in gold foil across the glass. The lights in the room are off, but you can hear faint sounds inside. Is it the sound of animals in a cage? Chains rattling? You can&#39;t quite tell but there is a metallic sounding chatter coming from inside.
+* [[Open the door|Enter lab 2]]
+* [[Go back into the hallway|Hallway]]
+/*
+LAB TWO
+Objectives:
+-- Find the ?
+
+Key Elements:
+--
+
+Requirements:
+-- 
+*/</tw-passagedata><tw-passagedata pid="18" name="Enter lab 2" tags="lab2" position="975,225">!!Lab #2
+&lt;&lt;if not $lab2.lights&gt;&gt;
+It is dark in the room, but you can hear the rattling sounds much more clearly now.
+* &lt;&lt;link &#39;Turn on the lights&#39; &#39;Enter lab 2&#39;&gt;&gt;&lt;&lt;set $lab2.lights to true&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;&lt;else&gt;&gt;
+You see many cages filled with rates, cats and monkeys. You remember that, as a student, this wasn&#39;t a fun lab to spend time in. The aminals were often subjected to, what you felt, were cruel experiments. But you also knew that it was an important room. Here, the professors made great discoveries about animnal behavior which helped the professors in the psychology department think about how the human mind works.
+* [[Turn off the lights|Lights out]]
+* [[Leave the lab|Lab 2]]
+* [[Investigate the cages]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Investigate the cages" tags="lab2" position="1100,225">You see a wall of cages containing rats, cats, and monkeys. Some of the animals pound against their enclosures making a loud rattling sound. The must be what you heard from the hallway.
+&lt;&lt;if $player.inventory.has(&#39;lab note&#39;)&gt;&gt;
+You see [[several drawers|Drawer]].
+&lt;&lt;else&gt;&gt;
+You see [[several drawers|Drawer]] and a &lt;&lt;link [[yellow piece of paper|Lab note]]&gt;&gt;&lt;&lt;pickup &#39;$player.inventory&#39; &#39;lab note&#39;&gt;&gt;&lt;&lt;set $player.investigation to $player.investigation + 1&gt;&gt;&lt;&lt;/link&gt;&gt; sticking out of one of them.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Start" tags="" position="1225,225">&lt;&lt;if not hasVisited(&quot;Hallway&quot;)&gt;&gt;!! Miskatonic University
+You find yourself back at your alma mater, Miskatonic University, standing in front of the Life Sciences building where you studied biology while an undergraduate. The large, bronze, double doors, shine with the polish you always expected when entering this grand building. You stop for a moment to consider your options:
+\&lt;&lt;else&gt;&gt;Standing outside the Life Sciences building again you feel a creeping dread from the time you just spent inside. The bronze doors look tarnished and you shiver in the cold, damp atmosphere of Arkham. Did you leave too early? Or too late?&lt;&lt;/if&gt;&gt;
+* [[Enter the building|Hallway]]
+* [[You feel a strange fear and leave the university|Arkham]]</tw-passagedata><tw-passagedata pid="21" name="Hallway" tags="" position="100,350">&lt;&lt;first&gt;&gt;\
 You enter the hallway of the Life Sciences building. Memories of your time as a student flood your mind, but you also feel a cold chill that emanates from the end of the hallway. \
 &lt;&lt;then&gt;&gt;\
 You feel a cold chill emanating from the end of the hallway. \
@@ -298,17 +317,15 @@ The great lecture hall stands in front of you and various rooms on both the your
 * [[Look to the left|Left rooms]]
 * [[Look to the right|Right rooms]]
 * [[Walk to the end of the hallway|End of hallway]]
-* [[Exit the building|Start]]</tw-passagedata><tw-passagedata pid="20" name="Right rooms" tags="" position="1225,225">As you look to the right you see three doors marking the entrances to the three lab rooms in this building. Each is labelled with an unimaginative label. 
+* [[Exit the building|Start]]</tw-passagedata><tw-passagedata pid="22" name="Right rooms" tags="" position="225,350">As you look to the right you see three doors marking the entrances to the two lab rooms in this building. Each is labelled unimaginatively. 
 * [[Enter Lab 1|Lab 1]]
 * [[Enter Lab 2|Lab 2]]
-* [[Enter Lab 3|Lab 3]]
 * [[Turn around|Hallway]]
-* [[Head to the end of the hallway|End of hallway]]</tw-passagedata><tw-passagedata pid="21" name="Left rooms" tags="" position="100,350">As you look to the left you see three doors marking the entrances to the three lab rooms in this building. Each is labelled with an unimaginative label. 
-* [[Enter Lab 1|Lab 1]]
-* [[Enter Lab 2|Lab 2]]
-* [[Enter Lab 3|Lab 3]]
+* [[Head to the end of the hallway|End of hallway]]</tw-passagedata><tw-passagedata pid="23" name="Left rooms" tags="" position="350,350">As you look to the left you see two doors. One is a small door labelled &quot;Supply Closet.&quot; The other is the office of Dr. Conrad Miller, the Dean of the School of Biology here at Miskatonic.
+* [[Enter Janitor&#39;s closet|Closet]]
+* [[Dr. Miller&#39;s Office|Office]]
 * [[Turn around|Hallway]]
-* [[Head to the end of the hallway|End of hallway]]</tw-passagedata><tw-passagedata pid="22" name="StoryInit" tags="" position="225,350">&lt;&lt;set $game_state to &quot;play&quot;&gt;&gt;
+* [[Head to the end of the hallway|End of hallway]]</tw-passagedata><tw-passagedata pid="24" name="StoryInit" tags="" position="475,350">&lt;&lt;set $game_state to &quot;play&quot;&gt;&gt;
 &lt;&lt;set $player to {} &gt;&gt;
 &lt;&lt;set $player.sanity_start to 7&gt;&gt;
 &lt;&lt;set $player.sanity_current to $player.sanity_start&gt;&gt;
@@ -318,18 +335,22 @@ The great lecture hall stands in front of you and various rooms on both the your
 &lt;&lt;newinventory &#39;$player.inventory&#39;&gt;&gt;
 &lt;&lt;set _items to [&#39;matches&#39;, &#39;candle&#39;, &#39;wallet&#39;, &#39;watch&#39;].pluckMany(2)&gt;&gt;
 &lt;&lt;pickup &#39;$player.inventory&#39; _items&gt;&gt;
-&lt;&lt;newinventory &#39;$player.clues&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="PassageReady" tags="" position="350,350">&lt;&lt;if $game_state is &quot;play&quot;&gt;&gt;
+&lt;&lt;newinventory &#39;$player.clues&#39;&gt;&gt;
+
+/* room properties */
+&lt;&lt;set $lab2 to {}&gt;&gt;
+&lt;&lt;set $lab2.lights to false&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="PassageReady" tags="" position="600,350">&lt;&lt;if $game_state is &quot;play&quot;&gt;&gt;
   &lt;&lt;if $player.health_current lt 1 &gt;&gt;
 	&lt;&lt;set $game_state to &quot;over&quot;&gt;&gt;
 	&lt;&lt;goto &quot;You are dead&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="PassageFooter" tags="" position="475,350">&lt;div id=&quot;footer&quot;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="PassageFooter" tags="" position="725,350">&lt;div id=&quot;footer&quot;&gt;
 &lt;&lt;if tags().includes(&quot;no-footer&quot;)&gt;&gt;
 &lt;&lt;elseif $game_state is &quot;over&quot;&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;include DisplayStats&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="DisplayStats" tags="" position="600,350">&lt;div class=&quot;stats&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="DisplayStats" tags="" position="850,350">&lt;div class=&quot;stats&quot;&gt;
 &lt;&lt;nobr&gt;&gt;
 &lt;span class=&quot;stat&quot;&gt;&#39;&#39;HEALTH:&#39;&#39; 
 &lt;&lt;for _i to 0; _i lt $player.health_start; _i++&gt;&gt;
@@ -346,7 +367,7 @@ The great lecture hall stands in front of you and various rooms on both the your
 &lt;/span&gt;
 &lt;&lt;include &quot;Display inventory&quot;&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Lights out" tags="no-footer" position="725,350">&lt;&lt;set _sound to either(&quot;scream&quot;, &quot;whisper&quot;, &quot;crash&quot;, &quot;moan&quot;)&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Lights out" tags="no-footer" position="975,350">&lt;&lt;set _sound to either(&quot;scream&quot;, &quot;whisper&quot;, &quot;crash&quot;, &quot;moan&quot;)&gt;&gt;
 &lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;
     &lt;&lt;replace &quot;#message&quot;&gt;&gt;
@@ -358,14 +379,20 @@ The great lecture hall stands in front of you and various rooms on both the your
 &lt;&lt;next&gt;&gt;
     &lt;&lt;replace &quot;#message&quot;&gt;&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;return &quot;Turn the lights back on.&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
     &lt;&lt;sanity &#39;-1&#39;&gt;&gt;
-    &lt;&lt;notify 4s&gt;&gt;You lose one sanity.&lt;&lt;/notify&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="widgets" tags="widget" position="850,350">&lt;&lt;widget &quot;sanity&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="widgets" tags="widget" position="1100,350">&lt;&lt;widget &quot;sanity&quot;&gt;&gt;
+&lt;&lt;set _temp to $player.sanity_current&gt;&gt;
 &lt;&lt;if $args[0].first() is &#39;+&#39; or $args[0].first() is &#39;-&#39;&gt;&gt;
   &lt;&lt;set $player.sanity_current to $player.sanity_current + Number($args[0])&gt;&gt;
 &lt;&lt;elseif $args[0] is &#39;reset&#39;&gt;&gt;
   &lt;&lt;set $player.sanity_current to $player.sanity_start&gt;&gt;
 &lt;&lt;else&gt;&gt;
   &lt;&lt;set $player.sanity_current to $args[0]&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set _delta to $player.sanity_current - _temp&gt;&gt;
+&lt;&lt;if _delta lt 0&gt;&gt;
+  &lt;&lt;notify 4s&gt;&gt;You are losing your mind!&lt;&lt;/notify&gt;&gt;
+&lt;&lt;elseif _delta gt 0&gt;&gt;
+  &lt;&lt;notify 4s&gt;&gt;Your mind is healing&lt;&lt;/notify&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;replace &#39;#footer&#39;&gt;&gt;&lt;&lt;display &#39;DisplayStats&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/widget&gt;&gt;

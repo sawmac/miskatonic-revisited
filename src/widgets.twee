@@ -1,11 +1,27 @@
+/*
+WIDGETS
+Utility widgets for game
+
+-- sanity (controls adding removing sanity)
+-- health (controls adding removing health)
+*/
+
+
 :: widgets [widget]
 <<widget "sanity">>
+<<set _temp to $player.sanity_current>>
 <<if $args[0].first() is '+' or $args[0].first() is '-'>>
   <<set $player.sanity_current to $player.sanity_current + Number($args[0])>>
 <<elseif $args[0] is 'reset'>>
   <<set $player.sanity_current to $player.sanity_start>>
 <<else>>
   <<set $player.sanity_current to $args[0]>>
+<</if>>
+<<set _delta to $player.sanity_current - _temp>>
+<<if _delta lt 0>>
+  <<notify 4s>>You are losing your mind!<</notify>>
+<<elseif _delta gt 0>>
+  <<notify 4s>>Your mind is healing<</notify>>
 <</if>>
 <<replace '#footer'>><<display 'DisplayStats'>><</replace>>
 <</widget>>
