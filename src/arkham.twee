@@ -22,7 +22,7 @@ You escape into the streets of Arkham and find a small cafe to settle into. You 
 <<timed 1s>><span class="insane">Dead, yet dreaming, Cthulhu waits in his palace in R'lyeh.</span>
 <div id="end">The End</div>
 <</timed>>
-<<sanity "-2">>
+<<sanity -2>>
 <</linkreplace>>
 <</nobr>>
 </div>

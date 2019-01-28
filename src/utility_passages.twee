@@ -76,7 +76,7 @@ passages:
     <<replace "#message">><br><br>You hear a loud _sound and your mind reels.<</replace>>
 <<next>>
     <<replace "#message">><br><br><<return "Turn the lights back on.">><</replace>>
-    <<sanity '-1'>>
+    <<sanity -1>>
 <</timed>>
 
 ::You are dead [dead]

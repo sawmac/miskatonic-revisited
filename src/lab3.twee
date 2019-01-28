@@ -11,14 +11,16 @@ Requirements:
 */
 
 :: Lab 3 [lab3]
-<<if not $building.lab3.opened>>
+<<if not $building.lab3.opened>>\
 You stand in front of a large wooden door, with a frosted glass window. ''Lab #3'' appears in gold foil across the glass. 
 * [[Open the door|Enter lab 3]]
-<<else>>
+* [[Go back into the hallway|Hallway]]
+<<else>>\
 The door to Lab #3 is shattered, and a dark expanse of nothingness fills the door frame.
 * [[Enter the darkened room|The Void]]
-<</if>
 * [[Go back into the hallway|Hallway]]
+<</if>>
+
 
 :: Enter lab 3 [lab3]
 <<if not $building.lab3.opened>>
@@ -38,7 +40,7 @@ The door is locked.
 Ouch. The door doesn't move.<</if>>
 * [[Try again?|Force Door Lab 3]]
 * [[Turn around|Hallway]]
-<<health '-1'>>
+<<health -1>>
 
 :: Opened Lab 3 [lab3]
 The door breaks open. You can't tell if you or the door is in worse shape. 
@@ -51,5 +53,5 @@ You have a bad feeling about this, but also feel like you should explore this my
 You step into the room, except it isn't a room at all. 
 <<timed 2s>>It's a chilling void of blackness without a floor, walls or ceiling.
 <<next 2s>>You hear ear piercing shrieks, and the cold touch of tentacles caress your face.
-<<next 5s>><<sanity '-3'>><<goto 'Start'>>
+<<next 5s>><<sanity -3>><<goto 'Start'>>
 <</timed>>

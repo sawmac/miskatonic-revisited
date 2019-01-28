@@ -248,7 +248,7 @@ You feel relieved, but also unsatisfied. What adventures have you just turned yo
 &lt;&lt;timed 1s&gt;&gt;&lt;span class=&quot;insane&quot;&gt;Dead, yet dreaming, Cthulhu waits in his palace in R&#39;lyeh.&lt;/span&gt;
 &lt;div id=&quot;end&quot;&gt;The End&lt;/div&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;sanity &quot;-2&quot;&gt;&gt;
+&lt;&lt;sanity -2&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Display inventory" tags="inventory" position="350,100">&lt;&lt;set _array to $player.inventory.toArray()&gt;&gt;
@@ -310,14 +310,15 @@ You see many cages filled with rates, cats and monkeys. You remember that, as a 
 You see [[several drawers|Drawer]].
 &lt;&lt;else&gt;&gt;
 You see [[several drawers|Drawer]] and a &lt;&lt;link [[yellow piece of paper|Lab note]]&gt;&gt;&lt;&lt;pickup &#39;$player.inventory&#39; &#39;lab note&#39;&gt;&gt;&lt;&lt;set $player.investigation to $player.investigation + 1&gt;&gt;&lt;&lt;/link&gt;&gt; sticking out of one of them.
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Lab 3" tags="lab3" position="1225,225">&lt;&lt;if not $building.lab3.opened&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Lab 3" tags="lab3" position="1225,225">&lt;&lt;if not $building.lab3.opened&gt;&gt;\
 You stand in front of a large wooden door, with a frosted glass window. &#39;&#39;Lab #3&#39;&#39; appears in gold foil across the glass. 
 * [[Open the door|Enter lab 3]]
-&lt;&lt;else&gt;&gt;
+* [[Go back into the hallway|Hallway]]
+&lt;&lt;else&gt;&gt;\
 The door to Lab #3 is shattered, and a dark expanse of nothingness fills the door frame.
 * [[Enter the darkened room|The Void]]
-&lt;&lt;/if&gt;
-* [[Go back into the hallway|Hallway]]</tw-passagedata><tw-passagedata pid="21" name="Enter lab 3" tags="lab3" position="100,350">&lt;&lt;if not $building.lab3.opened&gt;&gt;
+* [[Go back into the hallway|Hallway]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Enter lab 3" tags="lab3" position="100,350">&lt;&lt;if not $building.lab3.opened&gt;&gt;
 The door is locked.
 * [[Break down the door|Force Door Lab 3]]
 * [[Go back into the hallway|Hallway]]
@@ -330,14 +331,14 @@ The door is locked.
 Ouch. The door doesn&#39;t move.&lt;&lt;/if&gt;&gt;
 * [[Try again?|Force Door Lab 3]]
 * [[Turn around|Hallway]]
-&lt;&lt;health &#39;-1&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="Opened Lab 3" tags="lab3" position="350,350">The door breaks open. You can&#39;t tell if you or the door is in worse shape. 
+&lt;&lt;health -1&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="Opened Lab 3" tags="lab3" position="350,350">The door breaks open. You can&#39;t tell if you or the door is in worse shape. 
 The room is exceptionally dark, as if no light could escape. 
 You have a bad feeling about this, but also feel like you should explore this mystery.
 * [[Enter the room|The Void]]
 * [[Turn around|Hallway]]</tw-passagedata><tw-passagedata pid="24" name="The Void" tags="lab3" position="475,350">You step into the room, except it isn&#39;t a room at all. 
 &lt;&lt;timed 2s&gt;&gt;It&#39;s a chilling void of blackness without a floor, walls or ceiling.
 &lt;&lt;next 2s&gt;&gt;You hear ear piercing shrieks, and the cold touch of tentacles caress your face.
-&lt;&lt;next 5s&gt;&gt;&lt;&lt;sanity &#39;-3&#39;&gt;&gt;&lt;&lt;goto &#39;Start&#39;&gt;&gt;
+&lt;&lt;next 5s&gt;&gt;&lt;&lt;sanity -3&gt;&gt;&lt;&lt;goto &#39;Start&#39;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Start" tags="" position="600,350">!! Miskatonic University
 &lt;&lt;if not hasVisited(&quot;Hallway&quot;)&gt;&gt;\
 You find yourself back at your alma mater, Miskatonic University. Here you studied biology as an undergraduate. You remember so many good times: exhilirating conversations with your fellow classmates; the exictement of learning from a prestigious faculty of scientists; and the strange and illuminating lab experiments you conducted to learn more about the biology of living creatures.
@@ -417,47 +418,48 @@ The great lecture hall stands in front of you and various rooms on both the your
     &lt;&lt;replace &quot;#message&quot;&gt;&gt;&lt;br&gt;&lt;br&gt;You hear a loud _sound and your mind reels.&lt;&lt;/replace&gt;&gt;
 &lt;&lt;next&gt;&gt;
     &lt;&lt;replace &quot;#message&quot;&gt;&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;return &quot;Turn the lights back on.&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
-    &lt;&lt;sanity &#39;-1&#39;&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="You are dead" tags="dead" position="475,475">You are dead!</tw-passagedata><tw-passagedata pid="35" name="widgets" tags="widget" position="600,475">&lt;&lt;widget &quot;sanity&quot;&gt;&gt;
-&lt;&lt;set _temp to $player.sanity_current&gt;&gt;
-&lt;&lt;if $args[0].first() is &#39;+&#39; or $args[0].first() is &#39;-&#39;&gt;&gt;
-  &lt;&lt;set $player.sanity_current to $player.sanity_current + Number($args[0])&gt;&gt;
-&lt;&lt;elseif $args[0] is &#39;reset&#39;&gt;&gt;
-  &lt;&lt;set $player.sanity_current to $player.sanity_start&gt;&gt;
+    &lt;&lt;sanity -1&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="You are dead" tags="dead" position="475,475">You are dead!</tw-passagedata><tw-passagedata pid="35" name="widgets" tags="widget" position="600,475">&lt;&lt;widget &quot;adjust_stats&quot;&gt;&gt;
+&lt;&lt;set _type to $args[0]&gt;&gt;
+&lt;&lt;set _amount to $args[1]&gt;&gt;
+&lt;&lt;set _temp to $player[_type + &#39;_current&#39;]&gt;&gt;
+&lt;&lt;if _amount === 0&gt;&gt;
+  &lt;&lt;set $player[_type + &#39;_current&#39;] to $player[_type + &#39;_start&#39;]&gt;&gt;
 &lt;&lt;else&gt;&gt;
-  &lt;&lt;set $player.sanity_current to $args[0]&gt;&gt;
+  &lt;&lt;set $player[_type + &#39;_current&#39;] to (_temp + _amount)&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;set _delta to $player.sanity_current - _temp&gt;&gt;
-&lt;&lt;if _delta lt 0&gt;&gt;
-  &lt;&lt;notify 4s&gt;&gt;You are losing your mind!&lt;&lt;/notify&gt;&gt;
-&lt;&lt;elseif _delta gt 0&gt;&gt;
-  &lt;&lt;notify 4s&gt;&gt;Your mind is healing&lt;&lt;/notify&gt;&gt;
+&lt;&lt;if $args[2]&gt;&gt;
+  &lt;&lt;notify 4s&gt;&gt;$args[2]&lt;&lt;/notify&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;replace &#39;#footer&#39;&gt;&gt;&lt;&lt;display &#39;DisplayStats&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 
+
+&lt;&lt;widget &quot;sanity&quot;&gt;&gt;
+&lt;&lt;set _message to &#39;&#39;&gt;&gt;
+&lt;&lt;if $args[0] lt 0&gt;&gt;
+  &lt;&lt;set _message to &#39;You are losing your mind!&#39;&gt;&gt;
+&lt;&lt;elseif $args[0] gt 0&gt;&gt;
+  &lt;&lt;set _message to &#39;Your mind is healing&#39;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;adjust_stats &#39;sanity&#39; $args[0] _message&gt;&gt;
+&lt;&lt;/widget&gt;&gt;
+
+
 &lt;&lt;widget &quot;health&quot;&gt;&gt;
-&lt;&lt;set _temp to $player.health_current&gt;&gt;
-&lt;&lt;if $args[0].first() is &#39;+&#39; or $args[0].first() is &#39;-&#39;&gt;&gt;
-  &lt;&lt;set $player.health_current to $player.health_current + Number($args[0])&gt;&gt;
-&lt;&lt;elseif $args[0] is &#39;reset&#39;&gt;&gt;
-  &lt;&lt;set $player.health_current to $player.health_current&gt;&gt;
-&lt;&lt;else&gt;&gt;
-  &lt;&lt;set $player.health_current to $args[0]&gt;&gt;
+&lt;&lt;set _message to &#39;&#39;&gt;&gt;
+&lt;&lt;if $args[0] lt 0&gt;&gt;
+  &lt;&lt;set _message to &#39;You are injured!&#39;&gt;&gt;
+&lt;&lt;elseif $args[0] gt 0&gt;&gt;
+  &lt;&lt;set _message to &#39;Your body is healing.&#39;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;set _delta to $player.health_current - _temp&gt;&gt;
-&lt;&lt;if _delta lt 0&gt;&gt;
-  &lt;&lt;notify 4s&gt;&gt;You are injured!&lt;&lt;/notify&gt;&gt;
-&lt;&lt;elseif _delta gt 0&gt;&gt;
-  &lt;&lt;notify 4s&gt;&gt;Your body is healing&lt;&lt;/notify&gt;&gt;
-&lt;&lt;/if&gt;&gt;
+&lt;&lt;adjust_stats &#39;health&#39; $args[0] _message&gt;&gt;
 &lt;&lt;if $game_state is &quot;play&quot;&gt;&gt;
   &lt;&lt;if $player.health_current lt 1 &gt;&gt;
     &lt;&lt;set $game_state to &quot;over&quot;&gt;&gt;
     &lt;&lt;goto &quot;You are dead&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;replace &#39;#footer&#39;&gt;&gt;&lt;&lt;display &#39;DisplayStats&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata></tw-storydata></div>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */

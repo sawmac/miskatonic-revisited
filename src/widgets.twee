@@ -6,46 +6,46 @@ Utility widgets for game
 -- health (controls adding removing health)
 */
 
-
 :: widgets [widget]
-<<widget "sanity">>
-<<set _temp to $player.sanity_current>>
-<<if $args[0].first() is '+' or $args[0].first() is '-'>>
-  <<set $player.sanity_current to $player.sanity_current + Number($args[0])>>
-<<elseif $args[0] is 'reset'>>
-  <<set $player.sanity_current to $player.sanity_start>>
+<<widget "adjust_stats">>
+<<set _type to $args[0]>>
+<<set _amount to $args[1]>>
+<<set _temp to $player[_type + '_current']>>
+<<if _amount === 0>>
+  <<set $player[_type + '_current'] to $player[_type + '_start']>>
 <<else>>
-  <<set $player.sanity_current to $args[0]>>
+  <<set $player[_type + '_current'] to (_temp + _amount)>>
 <</if>>
-<<set _delta to $player.sanity_current - _temp>>
-<<if _delta lt 0>>
-  <<notify 4s>>You are losing your mind!<</notify>>
-<<elseif _delta gt 0>>
-  <<notify 4s>>Your mind is healing<</notify>>
+<<if $args[2]>>
+  <<notify 4s>>$args[2]<</notify>>
 <</if>>
 <<replace '#footer'>><<display 'DisplayStats'>><</replace>>
 <</widget>>
 
+
+<<widget "sanity">>
+<<set _message to ''>>
+<<if $args[0] lt 0>>
+  <<set _message to 'You are losing your mind!'>>
+<<elseif $args[0] gt 0>>
+  <<set _message to 'Your mind is healing'>>
+<</if>>
+<<adjust_stats 'sanity' $args[0] _message>>
+<</widget>>
+
+
 <<widget "health">>
-<<set _temp to $player.health_current>>
-<<if $args[0].first() is '+' or $args[0].first() is '-'>>
-  <<set $player.health_current to $player.health_current + Number($args[0])>>
-<<elseif $args[0] is 'reset'>>
-  <<set $player.health_current to $player.health_current>>
-<<else>>
-  <<set $player.health_current to $args[0]>>
+<<set _message to ''>>
+<<if $args[0] lt 0>>
+  <<set _message to 'You are injured!'>>
+<<elseif $args[0] gt 0>>
+  <<set _message to 'Your body is healing.'>>
 <</if>>
-<<set _delta to $player.health_current - _temp>>
-<<if _delta lt 0>>
-  <<notify 4s>>You are injured!<</notify>>
-<<elseif _delta gt 0>>
-  <<notify 4s>>Your body is healing<</notify>>
-<</if>>
+<<adjust_stats 'health' $args[0] _message>>
 <<if $game_state is "play">>
   <<if $player.health_current lt 1 >>
     <<set $game_state to "over">>
     <<goto "You are dead">>
   <</if>>
 <</if>>
-<<replace '#footer'>><<display 'DisplayStats'>><</replace>>
 <</widget>>
