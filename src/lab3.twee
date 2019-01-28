@@ -1,0 +1,55 @@
+/*
+LAB THREE
+Objectives:
+-- None -- this is a trap
+
+Key Elements:
+-- The void
+
+Requirements:
+-- Must break down door.
+*/
+
+:: Lab 3 [lab3]
+<<if not $building.lab3.opened>>
+You stand in front of a large wooden door, with a frosted glass window. ''Lab #3'' appears in gold foil across the glass. 
+* [[Open the door|Enter lab 3]]
+<<else>>
+The door to Lab #3 is shattered, and a dark expanse of nothingness fills the door frame.
+* [[Enter the darkened room|The Void]]
+<</if>
+* [[Go back into the hallway|Hallway]]
+
+:: Enter lab 3 [lab3]
+<<if not $building.lab3.opened>>
+The door is locked.
+* [[Break down the door|Force Door Lab 3]]
+* [[Go back into the hallway|Hallway]]
+<</if>>
+
+
+::Force Door Lab 3 [lab3]
+<<set _attempt to random(1, 10)>>\
+<<if _attempt gte $building.lab3.door>><<set $building.lab3.opened to true>><<goto 'Opened Lab 3'>>\
+<<elseif _attempt gte 7>><<set $building.lab3.door to $building.lab3.door - 1 >>\
+    You hit your shoulder squarely against the door. And hear a sharp sound. 
+    You can't tell if it's your shoulder, or the door jamb that just cracked.\
+<<else>>You hit your shoulder squarely against the door. 
+Ouch. The door doesn't move.<</if>>
+* [[Try again?|Force Door Lab 3]]
+* [[Turn around|Hallway]]
+<<health '-1'>>
+
+:: Opened Lab 3 [lab3]
+The door breaks open. You can't tell if you or the door is in worse shape. 
+The room is exceptionally dark, as if no light could escape. 
+You have a bad feeling about this, but also feel like you should explore this mystery.
+* [[Enter the room|The Void]]
+* [[Turn around|Hallway]]
+
+:: The Void [lab3]
+You step into the room, except it isn't a room at all. 
+<<timed 2s>>It's a chilling void of blackness without a floor, walls or ceiling.
+<<next 2s>>You hear ear piercing shrieks, and the cold touch of tentacles caress your face.
+<<next 5s>><<sanity '-3'>><<goto 'Start'>>
+<</timed>>

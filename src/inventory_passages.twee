@@ -1,3 +1,15 @@
+/*
+INVENTORY PASSAGES 
+Passages for displaying and describing inventory items
+
+Passages (items):
+-- Display inventory
+-- wallet
+-- matches
+-- candle
+-- lab note
+*/
+
 :: Display inventory [inventory]
 <<set _array to $player.inventory.toArray()>>
 <span class="inventory">\

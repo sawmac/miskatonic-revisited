@@ -27,18 +27,25 @@ Utility widgets for game
 <</widget>>
 
 <<widget "health">>
+<<set _temp to $player.health_current>>
 <<if $args[0].first() is '+' or $args[0].first() is '-'>>
   <<set $player.health_current to $player.health_current + Number($args[0])>>
 <<elseif $args[0] is 'reset'>>
-  <<set $player.health_current to $player.health_start>>
+  <<set $player.health_current to $player.health_current>>
 <<else>>
   <<set $player.health_current to $args[0]>>
 <</if>>
+<<set _delta to $player.health_current - _temp>>
+<<if _delta lt 0>>
+  <<notify 4s>>You are injured!<</notify>>
+<<elseif _delta gt 0>>
+  <<notify 4s>>Your body is healing<</notify>>
+<</if>>
+<<if $game_state is "play">>
+  <<if $player.health_current lt 1 >>
+    <<set $game_state to "over">>
+    <<goto "You are dead">>
+  <</if>>
+<</if>>
 <<replace '#footer'>><<display 'DisplayStats'>><</replace>>
-<</widget>>
-
-<<widget "either">>
-<<nobr>>
-   <<print either($args)>>\
-<</nobr>>
 <</widget>>

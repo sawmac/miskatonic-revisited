@@ -22,16 +22,18 @@ passages:
 <<newinventory '$player.clues'>>
 
 /* room properties */
-<<set $lab2 to {}>>
-<<set $lab2.lights to false>>
+<<set $building to {}>>
+
+<<set $building.lab2 to {}>>
+<<set $building.lab2.lights to false>>
+
+<<set $building.lab3 to {}>>
+<<set $building.lab3.opened to false>>
+<<set $building.lab3.door to 10>>
+
 
 :: PassageReady
-<<if $game_state is "play">>
-  <<if $player.health_current lt 1 >>
-	<<set $game_state to "over">>
-	<<goto "You are dead">>
-  <</if>>
-<</if>>
+
 
 :: PassageFooter
 <div id="footer">
@@ -76,3 +78,6 @@ passages:
     <<replace "#message">><br><br><<return "Turn the lights back on.">><</replace>>
     <<sanity '-1'>>
 <</timed>>
+
+::You are dead [dead]
+You are dead!

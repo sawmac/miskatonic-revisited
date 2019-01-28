@@ -16,9 +16,9 @@ Requirements:
 
 :: Enter lab 2 [lab2]
 !!Lab #2
-<<if not $lab2.lights>>
+<<if not $building.lab2.lights>>
 It is dark in the room, but you can hear the rattling sounds much more clearly now.
-* <<link 'Turn on the lights' 'Enter lab 2'>><<set $lab2.lights to true>><</link>>
+* <<link 'Turn on the lights' 'Enter lab 2'>><<set $building.lab2.lights to true>><</link>>
 <<else>>
 You see many cages filled with rates, cats and monkeys. You remember that, as a student, this wasn't a fun lab to spend time in. The aminals were often subjected to, what you felt, were cruel experiments. But you also knew that it was an important room. Here, the professors made great discoveries about animnal behavior which helped the professors in the psychology department think about how the human mind works.
 * [[Turn off the lights|Lights out]]

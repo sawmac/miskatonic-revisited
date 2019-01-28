@@ -15,11 +15,14 @@ Passages:
 ifid:16443fc7-03f0-4a65-b490-c56b1a062481
 
 :: StoryTitle
-Miskatonic U
+Return to Miskatonic
 
 :: Start
-<<if not hasVisited("Hallway")>>!! Miskatonic University
-You find yourself back at your alma mater, Miskatonic University, standing in front of the Life Sciences building where you studied biology while an undergraduate. The large, bronze, double doors, shine with the polish you always expected when entering this grand building. You stop for a moment to consider your options:
+!! Miskatonic University
+<<if not hasVisited("Hallway")>>\
+You find yourself back at your alma mater, Miskatonic University. Here you studied biology as an undergraduate. You remember so many good times: exhilirating conversations with your fellow classmates; the exictement of learning from a prestigious faculty of scientists; and the strange and illuminating lab experiments you conducted to learn more about the biology of living creatures.
+
+You are on a business trip, passing through Arkham on your way to Innsmouth, where you hope to investigate the rumours you've heard of the wild aquatic life of that sleepy coastal town. But the memories of your days at the university compelled you to stop by and revisit your old haunts. You are standing in front of the Life Sciences building where you studied biology. The large, bronze, double doors, shine with the polish you always expected when entering this grand building. You stop for a moment to consider your options:
 \<<else>>Standing outside the Life Sciences building again you feel a creeping dread from the time you just spent inside. The bronze doors look tarnished and you shiver in the cold, damp atmosphere of Arkham. Did you leave too early? Or too late?<</if>>
 * [[Enter the building|Hallway]]
 * [[You feel a strange fear and leave the university|Arkham]]
@@ -40,6 +43,7 @@ The great lecture hall stands in front of you and various rooms on both the your
 As you look to the right you see three doors marking the entrances to the two lab rooms in this building. Each is labelled unimaginatively. 
 * [[Enter Lab 1|Lab 1]]
 * [[Enter Lab 2|Lab 2]]
+* [[Enter Lab 3|Lab 3]]
 * [[Turn around|Hallway]]
 * [[Head to the end of the hallway|End of hallway]]
 
