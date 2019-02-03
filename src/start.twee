@@ -36,7 +36,7 @@ You feel a cold chill emanating from the end of the hallway. \
 The great lecture hall stands in front of you and various rooms on both the your left- and right-hand. 
 * [[Look to the left|Left rooms]]
 * [[Look to the right|Right rooms]]
-* [[Walk to the end of the hallway|End of hallway]]
+* [[Walk to the end of the hallway|Lecture]]
 * [[Exit the building|Start]]
 
 :: Right rooms
@@ -45,11 +45,11 @@ As you look to the right you see three doors marking the entrances to the two la
 * [[Enter Lab 2|Lab 2]]
 * [[Enter Lab 3|Lab 3]]
 * [[Turn around|Hallway]]
-* [[Head to the end of the hallway|End of hallway]]
+* [[Head to the end of the hallway|Lecture]]
 
 :: Left rooms
 As you look to the left you see two doors. One is a small door labelled "Supply Closet." The other is the office of Dr. Conrad Miller, the Dean of the School of Biology here at Miskatonic.
 * [[Enter Janitor's closet|Closet]]
 * [[Dr. Miller's Office|Office]]
 * [[Turn around|Hallway]]
-* [[Head to the end of the hallway|End of hallway]]
+* [[Head to the end of the hallway|Lecture]]

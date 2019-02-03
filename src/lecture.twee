@@ -9,3 +9,10 @@ Key Elements:
 Requirements:
 -- 
 */
+:: Lecture [lecture]
+You come to the end of the hall and stand before large double doors that lead to the main lecture hall of the Biology department.
+* [[Open doors|Hall]]
+* [[Turn around|Hallway]]
+
+:: Hall [lecture]
+The grand lecture hall of the biology department stands before you. The rows of seating lead down to the stage and podium from which you saw many aneminient professor present their learnings and theories of the biology human and animal biology.

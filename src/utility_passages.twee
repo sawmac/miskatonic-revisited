@@ -9,7 +9,11 @@ passages:
 */
 
 :: StoryInit
-<<set $game_state to "play">>
+/* game properties */
+<<set $game to {} >>
+<<set $game.state to "play">>
+
+/* player properties */
 <<set $player to {} >>
 <<set $player.sanity_start to 7>>
 <<set $player.sanity_current to $player.sanity_start>>
@@ -21,12 +25,10 @@ passages:
 <<pickup '$player.inventory' _items>>
 <<newinventory '$player.clues'>>
 
-/* room properties */
+/* building properties */
 <<set $building to {}>>
-
 <<set $building.lab2 to {}>>
 <<set $building.lab2.lights to false>>
-
 <<set $building.lab3 to {}>>
 <<set $building.lab3.opened to false>>
 <<set $building.lab3.door to 10>>
@@ -38,7 +40,7 @@ passages:
 :: PassageFooter
 <div id="footer">
 <<if tags().includes("no-footer")>>
-<<elseif $game_state is "over">>
+<<elseif $game.state is "over">>
 <<else>>
   <<include DisplayStats>>
 <</if>>
